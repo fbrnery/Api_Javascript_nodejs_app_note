@@ -1,7 +1,8 @@
 var express = require('express');
 var path = require('path');
-
 var logger = require('morgan');
+
+require('./config/database');
 
 
 var usersRouter = require('./app/routes/users');
