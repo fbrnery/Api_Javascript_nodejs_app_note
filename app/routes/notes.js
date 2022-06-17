@@ -16,6 +16,18 @@ router.post('/', withAuth, async (req, res) => {
        }
    });
 
+   router.get('/search', withAuth, async (req, res) => {
+     const { query } = req.query;
+    try {
+        let notes = await Note
+        .find({ author: req.user._id}) 
+        .find({ author: req.user._id});
+        res.json(notes);
+       } catch (error) {
+         res.json({error: error}).status(500);
+       }
+   });
+
    router.get('/:id', withAuth, async function(req, res) {
 
     try {
